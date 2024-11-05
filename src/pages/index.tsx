@@ -13,6 +13,7 @@ interface Client {
   name: string;
   phone: string;
   address: string;
+  bill: string;
   createdAt: Date;
   updatedAt: Date;
   loanSharkId: number;
@@ -27,6 +28,7 @@ const ClientList = () => {
     name: "",
     phone: "",
     address: "",
+    bill: "",
   });
 
   const fetchClients = async () => {
@@ -71,6 +73,7 @@ const ClientList = () => {
       name: "",
       phone: "",
       address: "",
+      bill: "",
     });
     setShowModal(true);
   };
@@ -95,36 +98,45 @@ const ClientList = () => {
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>Endereço</th>
+                <th>Valor Devido</th>
                 <th>Ações</th>
               </tr>
             </thead>
             <tbody>
-              {clients.map((client) => (
-                <tr key={client.id}>
-                  <td>{client.id}</td>
-                  <td>{client.name}</td>
-                  <td>{client.phone}</td>
-                  <td>{client.address}</td>
-                  <td>
-                    <Button
-                      variant="warning"
-                      onClick={() => handleEditClient(client)}
-                      className="me-2"
-                    >
-                      Editar
-                    </Button>
-                    <Button
-                      variant="danger"
-                      onClick={() => handleDeleteClient(client.id)}
-                    >
-                      Excluir
-                    </Button>
+              {Array.isArray(clients) && clients.length > 0 ? (
+                clients.map((client) => (
+                  <tr key={client.id}>
+                    <td>{client.id}</td>
+                    <td>{client.name}</td>
+                    <td>{client.phone}</td>
+                    <td>{client.address}</td>
+                    <td>{client.bill}</td>
+                    <td>
+                      <Button
+                        variant="warning"
+                        onClick={() => handleEditClient(client)}
+                        className="me-2"
+                      >
+                        Editar
+                      </Button>
+                      <Button
+                        variant="danger"
+                        onClick={() => handleDeleteClient(client.id)}
+                      >
+                        Excluir
+                      </Button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={6} className="text-center">
+                    Nenhum cliente encontrado.
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </Table>
-          {/* Modal para adicionar/editar cliente */}
           <Modal show={showModal} onHide={() => setShowModal(false)}>
             <Modal.Header closeButton>
               <Modal.Title>
@@ -171,6 +183,20 @@ const ClientList = () => {
                       setCurrentClient({
                         ...currentClient,
                         address: e.target.value,
+                      })
+                    }
+                  />
+                </Form.Group>
+                <Form.Group controlId="formClientBill" className="mb-3">
+                  <Form.Label>Valor Devido</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="Valor Devido"
+                    value={currentClient.bill}
+                    onChange={(e) =>
+                      setCurrentClient({
+                        ...currentClient,
+                        bill: e.target.value,
                       })
                     }
                   />
