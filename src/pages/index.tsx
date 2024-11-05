@@ -24,6 +24,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3002";
 const ClientList = () => {
   const [clients, setClients] = useState<Client[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentClient, setCurrentClient] = useState<Partial<Client>>({
     name: "",
     phone: "",
@@ -32,15 +33,20 @@ const ClientList = () => {
   });
 
   const fetchClients = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get(`${API_URL}/clients`);
-      setClients(response.data);
+      setClients(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error("Erro ao buscar clientes:", error);
+      setClients([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleSaveClient = async () => {
+    setIsLoading(true);
     try {
       if (currentClient.id) {
         await axios.put(`${API_URL}/client/${currentClient.id}`, currentClient);
@@ -51,15 +57,20 @@ const ClientList = () => {
       fetchClients();
     } catch (error) {
       console.error("Erro ao salvar cliente:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleDeleteClient = async (id: number) => {
+    setIsLoading(true);
     try {
       await axios.delete(`${API_URL}/client/${id}`);
       fetchClients();
     } catch (error) {
       console.error("Erro ao excluir cliente:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -86,6 +97,12 @@ const ClientList = () => {
     <div>
       <Header />
       <div className={styles.pageBackground}>
+        {isLoading && (
+          <div className={styles.loadingOverlay}>
+            <div className={styles.spinner}></div>
+            <span>Carregando...</span>
+          </div>
+        )}
         <div className={styles.containerBackground}>
           <h2>Lista de Clientes</h2>
           <Button variant="primary" onClick={handleAddClient} className="mb-3">
@@ -159,11 +176,11 @@ const ClientList = () => {
                     }
                   />
                 </Form.Group>
-                <Form.Group controlId="formClientPin" className="mb-3">
+                <Form.Group controlId="formClientPhone" className="mb-3">
                   <Form.Label>Telefone</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="PIN do Cliente"
+                    placeholder="Telefone do Cliente"
                     value={currentClient.phone}
                     onChange={(e) =>
                       setCurrentClient({
@@ -173,11 +190,11 @@ const ClientList = () => {
                     }
                   />
                 </Form.Group>
-                <Form.Group controlId="formClientPin" className="mb-3">
+                <Form.Group controlId="formClientAddress" className="mb-3">
                   <Form.Label>Endereço</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="PIN do Cliente"
+                    placeholder="Endereço do Cliente"
                     value={currentClient.address}
                     onChange={(e) =>
                       setCurrentClient({
