@@ -21,7 +21,7 @@ function Header() {
       <Tab
         eventKey="/"
         title={<span className={styles.tabLink}>Clientes</span>}
-        tabClassName={router.pathname === "/" ? styles.tabActive : ""}
+        tabClassName={router.pathname === "/home" ? styles.tabActive : ""}
       />
       <Tab
         eventKey="/image"
