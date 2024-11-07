@@ -4,6 +4,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import styles from "../styles/image.module.css";
 import Head from "next/head";
+import withAuth from "../components/withAuth";
 
 const Image = () => {
   return (
@@ -26,4 +27,4 @@ const Image = () => {
   );
 };
 
-export default Image;
+export default withAuth(Image);
