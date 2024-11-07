@@ -1,0 +1,22 @@
+.loadingText {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #f8f9fa;
+}
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
+  background-color: #f8f9fa;
+}
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

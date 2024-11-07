@@ -1,40 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Trabalho
 
-## Getting Started
+1. O trabalho consiste no desenvolvimento de um app react. A função do app é de livre escolha,
+   porém os critérios abaixo devem ser observados.
 
-First, run the development server:
+• O app deve conter um menu de navegação para as telas necessárias e a navegação deve
+funcionar normalmente
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+• Uma tela deve utilizar o axios para fazer uma requisição get e mostrar o retorno de:
+https://picsum.photos/id/237/400/600
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+• Utilize o componente do react bootstrap "Tab"
+https://react-bootstrap.netlify.app/docs/components/tabs
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+• Você deve criar as telas para as operações de CRUD.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+• Deve existir uma tela de login
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Repositório no GIT: https://github.com/muriloklein/agiota_manager_system_front
