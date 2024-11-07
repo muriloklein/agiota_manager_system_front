@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import styles from "../styles/index.module.css";
+import withAuth from "../components/withAuth";
 
 interface Client {
   id: number;
@@ -236,4 +237,4 @@ const ClientList = () => {
   );
 };
 
-export default ClientList;
+export default withAuth(ClientList);
