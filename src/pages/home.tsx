@@ -167,6 +167,7 @@ const ClientList = () => {
                   <Form.Label>Nome</Form.Label>
                   <Form.Control
                     type="text"
+                    required
                     placeholder="Nome do Cliente"
                     value={currentClient.name}
                     onChange={(e) =>
@@ -181,6 +182,7 @@ const ClientList = () => {
                   <Form.Label>Telefone</Form.Label>
                   <Form.Control
                     type="text"
+                    required
                     placeholder="Telefone do Cliente"
                     value={currentClient.phone}
                     onChange={(e) =>
@@ -195,6 +197,7 @@ const ClientList = () => {
                   <Form.Label>Endereço</Form.Label>
                   <Form.Control
                     type="text"
+                    required
                     placeholder="Endereço do Cliente"
                     value={currentClient.address}
                     onChange={(e) =>
@@ -209,6 +212,7 @@ const ClientList = () => {
                   <Form.Label>Valor Devido</Form.Label>
                   <Form.Control
                     type="number"
+                    required
                     placeholder="Valor Devido"
                     value={currentClient.bill}
                     onChange={(e) =>
