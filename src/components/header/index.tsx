@@ -19,7 +19,7 @@ function Header() {
       justify
     >
       <Tab
-        eventKey="/"
+        eventKey="/home"
         title={<span className={styles.tabLink}>Clientes</span>}
         tabClassName={router.pathname === "/home" ? styles.tabActive : ""}
       />
