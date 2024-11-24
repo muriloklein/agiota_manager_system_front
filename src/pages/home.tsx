@@ -20,7 +20,8 @@ interface Client {
   loanSharkId: number;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3002";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3002/api/webmob";
 
 const ClientList = () => {
   const [clients, setClients] = useState<Client[]>([]);
