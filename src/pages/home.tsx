@@ -93,6 +93,7 @@ const ClientList = () => {
 
   useEffect(() => {
     fetchClients();
+    console.log(sessionStorage.getItem("ams-token"));
   }, []);
 
   return (
