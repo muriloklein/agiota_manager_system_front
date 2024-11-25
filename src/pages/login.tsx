@@ -29,7 +29,7 @@ const Login = function () {
     const response = await authService.login(params);
 
     const status = response?.status;
-    console.log(status);
+    console.log(response.data.token);
 
     if (status == 200) {
       sessionStorage.setItem("ams-token", response.data.token);
