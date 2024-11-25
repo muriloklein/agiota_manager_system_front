@@ -1,4 +1,7 @@
 .headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: rgba(30, 30, 30, 1) !important;
   border-radius: 8px !important;
   padding: 12px !important;
@@ -6,6 +9,10 @@
   border: none !important;
   border-bottom: 1px solid #f8f9fa !important;
   border-radius: 0 !important;
+}
+
+.tabs {
+  width: 75%;
 }
 
 .tabLink {
@@ -22,4 +29,9 @@
   background-color: #3b3c3d !important;
   color: #ffffff !important;
   border-radius: 4px !important;
+}
+
+.logoffButton {
+  margin-left: 1rem;
+  padding: 8px 15px;
 }
